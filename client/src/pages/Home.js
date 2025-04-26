@@ -11,12 +11,12 @@ const Home = () => {
   return (
     <div className="video-container">
       <video autoPlay={true} muted={true} loop={true} src={video}></video>
-      <div className="content mt-5">
-        <div className="container">
-          <div className="p-5 mb-4 bg-light rounded-3">
-            <div className="container-fluid py-5">
-              <h1 className="display-5 fw-bold">Travel Planner</h1>
-              <p className="col-md-8 fs-4">
+      <div className="content mt-5  ">
+        <div className="container ">
+          <div className="p-2 mb-4 bg-light rounded-3  ">
+            <div className="container-fluid py-5 custom-bg homebox">
+              <h1 className="display-5 fw-bold">Travel Tales</h1>
+              <p className="fs-4 ">
                 Never miss that recommendation again
               </p>
               {userId ? (

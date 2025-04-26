@@ -1,67 +1,101 @@
-import React from "react";
-import logo from "../assets/group.png";
+import React, { useState } from 'react';
+
+//darklord
+import logo from "../assets/t-p-logo.jpg"
 
 const Contact = () => {
-  return (
-    <div className="container mt-2">
-      <h2 className="display-6">Contact</h2>
-      <div className="row mb-3">
-        <div className="col">
-          <img
-            src={logo}
-            width="50%"
-            alt="Team Procedural"
-            className="rounded mx-auto d-block"
-          />
-        </div>
-      </div>
 
-      <div className="row mb-3">
-        <div className="col">
-          <h2 className="display-6">Sanyiah</h2>
-          <a href={"https://github.com/san098765432"} className="link-dark">
-            Sanyiah's Github
-          </a>
-        </div>
-        <div className="col">
-          <h2 className="display-6">Oli</h2>
-          <a href={"https://github.com/oli-drew"} className="link-dark">
-            Oli's Github
-          </a>
-        </div>
-        <div className="col">
-          <h2 className="display-6">Dylan</h2>
-          <a href={"https://github.com/DBAX7"} className="link-dark">
-            Dylan's Github
-          </a>
-        </div>
-        <div className="col">
-          <h2 className="display-6">Andrea</h2>
-          <a href={"https://github.com/Invogue01"} className="link-dark">
-            Andrea's Github
-          </a>
-        </div>
-        <div className="col">
-          <h2 className="display-6">Corey</h2>
-          <a href={"https://github.com/Corey96"} className="link-dark">
-            Corey's Github
-          </a>
-        </div>
-        <div className="col">
-          <h2 className="display-6">Zain</h2>
-          <a href={"https://github.com/zainuabidin"} className="link-dark">
-            Zain's Github
-          </a>
-        </div>
-        <div className="col">
-          <h2 className="display-6">Julia</h2>
-          <a href={"https://github.com/jgray33"} className="link-dark">
-            Julia's Github
-          </a>
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const namePattern = /^[a-zA-Z\s]+$/;
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const validateData = () => {
+    let valid = true;
+
+    if (name.trim() === "") {
+      setErrors(errors => ({ ...errors, name: "Enter your name here!" }));
+      valid = false;
+    } else if (!namePattern.test(name)) {
+      setErrors(errors => ({ ...errors, name: "Enter a valid name" }));
+      valid = false;
+    } else {
+      setErrors(errors => ({ ...errors, name: "" }));
+    }
+
+    if (email.trim() === "") {
+      setErrors(errors => ({ ...errors, email: "Enter email address!" }));
+      valid = false;
+    } else if (!emailPattern.test(email)) {
+      setErrors(errors => ({ ...errors, email: "This is not a valid email format" }));
+      valid = false;
+    } else {
+      setErrors(errors => ({ ...errors, email: "" }));
+    }
+
+    if (message.trim() === "") {
+      setErrors(errors => ({ ...errors, message: "Enter your message" }));
+      valid = false;
+    } else {
+      setErrors(errors => ({ ...errors, message: "" }));
+    }
+
+    if (valid) {
+      alert("Form submitted successfully!");
+      // Handle form submission here
+    }
+  }
+
+  return (
+    <>
+      <h1 className="heading">Connect Us Through</h1>
+      <div className="image">
+        <img src={logo} alt="" />
+        <div className="border w-25 m-auto mt-10 p-4 form">
+          <h3>Contact Us</h3>
+          <div>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <p className="text-danger">{errors.name}</p>
+          <div>
+            <label htmlFor="useremail">User Email</label>
+            <input
+              type="text"
+              className="form-control"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <p className="text-danger">{errors.email}</p>
+          <div>
+            <label htmlFor="message">Message</label>
+            <textarea
+              className="form-control"
+              onChange={(e) => setMessage(e.target.value)}
+            />
+          </div>
+          <p className="text-danger">{errors.message}</p>
+          <br />
+          <button className="btn btn-primary w-100" onClick={validateData}>
+            Submit
+          </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default Contact;
+

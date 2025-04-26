@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import Auth from "../utils/auth";
-import logo from "../assets/t-p-logo-sm.png";
+import logo from "../assets/t-p-logo-sm.jpg";
 
 const styles= {
   header: {
@@ -28,7 +28,7 @@ const Header = () => {
           width="40"
           height="40"
         />
-        <h1 className="bi fs-4">Travel Planner</h1>
+        <h1 className="bi fs-4">Travel Tales</h1>
       </Link>
       <NavBar />
       <div className="col-md-3 text-end">

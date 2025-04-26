@@ -18,3 +18,16 @@ code {
 
 
 
+.heading{
+  padding-top: 20px;
+  text-align: center;
+}
+.image{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.image img{
+  margin-top: 50px; 
+  width: 30%;
+}

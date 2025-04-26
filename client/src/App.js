@@ -18,6 +18,10 @@ import Signup from "./pages/Signup";
 import UserDashboard from "./pages/TripDashboard";
 import Contact from "./pages/Contact";
 
+// darklord
+import ExploreNorthIndia from "./components/harshuComponents/ExploreNorthIndia"
+import ExploreSouthIndia from "./components/harshuComponents/ExploreSouthIndia"
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -50,6 +54,10 @@ function App() {
             <Route path="/trips/:tripId" element={<Trip />} />
             <Route path="/users/:username" element={<UserDashboard />} />
             <Route path="/contact" element={<Contact />} />
+            {/* darklord */}
+            <Route path="/explorenorhtindia" element={<ExploreNorthIndia />} />
+            <Route path="/exploresouthindia" element={<ExploreSouthIndia />} />
+            {/* darklord */}
           </Routes>
           <Footer />
         </Router>

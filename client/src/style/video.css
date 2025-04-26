@@ -18,3 +18,14 @@
 }
 
 
+.custom-bg {
+  background-color: rgb(192 205 212);
+}
+
+.homebox{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
